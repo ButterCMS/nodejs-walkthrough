@@ -18,8 +18,17 @@ app.get('/', function(req, res) {
   });
 });
 
-app.get('/l/lakeview', function(req, res) {
-  res.render('lakeview')
+app.get('/l/:slug', function(req, res) {
+  var slug = req.params.slug;
+
+  butter.content.retrieve(['locations[slug='+slug+']']).then(function(resp) {
+    // 'locations' is a collection so we access the first and only item
+    var content = resp.data.data.locations[0];
+
+    res.render('location', {
+      content: content
+    })
+  });
 });
 
 // Start server
