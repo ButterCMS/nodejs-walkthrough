@@ -23,8 +23,10 @@
             <h3><%= content.homepage_headline %></h3>
 
             <div class="locations">
-	        		  <a href="/l/lakeview">Lakeview</a>
-        		</div>
+                <% content.locations.forEach(function(location) { %>
+	                <a href="/l/<%= location.slug %>"><%= location.name %></a>
+                <% }) %>
+        	</div>
         </div>
     </header>
 </body>

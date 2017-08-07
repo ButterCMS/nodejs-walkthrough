@@ -9,7 +9,7 @@ app.set('view engine', 'ejs');
 
 // Routes
 app.get('/', function(req, res) {
-  butter.content.retrieve(['homepage_headline']).then(function(resp) {
+  butter.content.retrieve(['homepage_headline', 'locations']).then(function(resp) {
     var content = resp.data.data;
 
   	res.render('home', {
