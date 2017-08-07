@@ -20,11 +20,13 @@
         <div class="text-vertical-center">
             <h1>FigTree Cafe</h1>
 
-            <h3>We're a family-owned coffee company with locations across Chicago.</h3>
+            <h3><%= content.homepage_headline %></h3>
 
             <div class="locations">
-	        		  <a href="/l/lakeview">Lakeview</a>
-        		</div>
+                <% content.locations.forEach(function(location) { %>
+	                <a href="/l/<%= location.slug %>"><%= location.name %></a>
+                <% }) %>
+        	</div>
         </div>
     </header>
 </body>
