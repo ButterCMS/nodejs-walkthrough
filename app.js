@@ -2,7 +2,7 @@
 
 const express = require('express');
 const app = express();
-const butter = require('buttercms')('');
+const butter = require('buttercms')('9515f791d07fc20b13beb09816c578a46312835d');
 
 app.use(express.static('public'))
 app.set('view engine', 'ejs');
