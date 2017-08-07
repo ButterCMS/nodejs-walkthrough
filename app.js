@@ -9,7 +9,13 @@ app.set('view engine', 'ejs');
 
 // Routes
 app.get('/', function(req, res) {
-  res.render('home');
+  butter.content.retrieve(['homepage_headline']).then(function(resp) {
+    var content = resp.data.data;
+
+  	res.render('home', {
+  		content: content
+	});
+  });
 });
 
 app.get('/l/lakeview', function(req, res) {
